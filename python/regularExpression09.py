@@ -29,110 +29,32 @@
 # +----------------------------------------------+-------------------------+
 
 
-$string = "learning perl is powerful";
+import re
+
+string = "Learing python is powerful"
+result = re.search(r'python', string)
+
+if (result):
+    print ("match found", result.span())
+else: 
+    print ("match not found")
 
 
 
-# MATCHING OPERATOR:
-if ($string =~ /perl/) {            # returns true if found you can also use !~ NEGATED MATCHING OPERATOR
-    print "Found\n";
-} else {
-    print "Not Found\n";
-}
+string = re.sub(r'python', "perl", string)
+print (string)
 
 
-
-# MATCH OPERATOR                    # same as =~
-$string =~ m/pattern/;
-
+matches = re.findall(r"\d", "hello1 ho2w a3re you 4")
+print (", ".join(matches))
 
 
+dates = """
 
-# SUBSTITUTION OPERATOR:
-$string =~ s/perl/python/;         # substituting perl with python (changing perl to python)
-print "$string\n";
+22/12/2022
+1-11-2004
+"""
 
-
-
-
-# TRANSLITERATION OPERATOR
-$string =~ tr/e/a/;                 # transforming each e it string to a
-print "$string\n";
-
-
-
-my @matches = "hello1 ho2w a3re you 4" =~ /\d/g;    # get all matches
-print "@matches\n";
-
-$text = "abc123";
-
-if ($text =~ /^\d/)  {
-    print "start with digit\n";
-} else {
-    print "Does not start with digit\n"
-}
-
-if ($text =~ /\d$/ ) {
-    print "End with digits\n"
-} 
-
-
-
-# search words starting with vowels
-$string = "Apple Orange Banana pinepapple";
-
-while($string =~ /\b[AEIOUaeiou]\w*/g)
-{
-    print ("$&\n");
-}
-
-
-
-# case insensitive matching 
-
-$message = "Hello World";
-
-if (!($message =~ /world/)) {
-    print "world not found in $message\n";
-}
-
-
-if ($message =~ /world/i) {
-    print "world found in $message\n";
-}
-
-
-# common patterns
-
-# date matching 
-
-$date = "13/11/2007";
-$date2 = "29.07.2005";
-$date3 = "29-07-2005";
-
-if ($date =~ /\d+[\.\/-]\d+[\.\/-]\d+/ )
-{
-    print "valid date\n"
-}
-if ($date2 =~ /\d+[\.\/-]\d+[\.\/-]\d+/ )
-{
-    print "valid date\n"
-}
-if ($date3 =~ /\d+[\.\/-]\d+[\.\/-]\d+/ )
-{
-    print "valid date\n"
-}
-
-
-
-# check a phone number 
-
-$number = "7869616950";
-
-if ($number =~ /\d{10}/) {
-    print "Valid phone number\n";
-}
-
-
-
-
+matches = re.findall(r'\d{1,2}[-/]\d{1,2}[-/]\d{4}', dates)
+print (', '.join(matches))
+                            
