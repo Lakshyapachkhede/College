@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technology - JS Buttons and Events</title>
+</head>
+
+<body>
+
+    <h1>Hello Click Below ⬇️</h1>
+    <button>Click Me</button>
+
+
+
+    <script>
+        // document.querySelector("button").onclick = () => {
+        //     alert("hello you are an idiot");
+        // }
+        document.querySelector("button").addEventListener("click", () => {
+            alert("you are an idiot");
+
+        });
+        document.querySelector("button").addEventListener("mouseout", function () {
+
+            alert("you are an idiot again");
+
+        });
+
+        alert("Hello, Lakshya!");
+
+
+    </script>
+
+</body>
+
+
+
+
+</html>

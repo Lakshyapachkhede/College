@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+
+
+<!-- <!DOCTYPE students [
+    <!ELEMENT students (student+)>
+    <!ELEMENT student (name,sem,branch)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT sem (#PCDATA)>
+    <!ELEMENT branch (#PCDATA)>
+]> -->
+
+<!DOCTYPE students SYSTEM "students.dtd" >
+
+
+<students>
+
+    <student>
+        <name>Lakshya Pachkhede</name>
+        <sem>4</sem>
+        <branch>CSE</branch>
+    </student>
+
+    <student>
+        <name>Eshika Vishwakarma</name>
+        <sem>4</sem>
+        <branch>CSE</branch>
+    </student>
+
+</students>

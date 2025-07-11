@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTechnology - AJAX</title>
+</head>
+<body>
+    
+
+    <h1>AJAX</h1>
+    <p><b>A</b>synchronus <br> <b>J</b>avascript <br> <b>A</b>nd <br><b>X</b>ml</p>
+    
+    <br>
+    <br>
+    <br>
+    <p>Click Below for magic ⬇️</p>
+    <button onclick="magic()">click</button>
+
+
+    <h2 id="result"></h2>
+
+    <script>
+        function magic(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "data.txt", true);
+
+            xhr.onload = function(){
+                if (xhr.status == 200) {
+                    document.getElementById("result").innerHTML = xhr.responseText;
+                } else {
+                    alert("Error occured " + xhr.status)   ;
+                }
+            };
+
+            xhr.send();
+
+        }
+
+
+    </script>
+
+
+
+</body>
+</html> 

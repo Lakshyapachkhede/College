@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTechnology - JS forms</title>
+</head>
+<body>
+    <h1>JavaScript - Form Validation</h1>
+
+    <form onsubmit="return validateForm()" name="myForm">
+        Name: <input type="text" name="name">
+
+        <button type="submit">Submit</button>
+
+
+    </form>
+
+
+    <script>
+        function validateForm(){
+            if (document.forms["myForm"]["name"].value.trim() === ""){
+                alert("Please Fill Form");
+                return false;
+            }
+
+            return true;
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>
