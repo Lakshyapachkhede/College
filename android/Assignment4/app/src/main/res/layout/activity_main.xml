@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAF2F8"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity"
+
+    >
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="Java String Methods"
+        android:textColor="#1A237E"
+        android:textSize="26sp"
+        android:textStyle="bold"
+
+        />
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/basic_back"
+        android:hint="Method Name"
+        android:inputType="text"
+        android:maxLines="1"
+        />
+
+
+    <EditText
+        android:id="@+id/etDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/basic_back"
+        android:hint="Method Description"
+        android:inputType="text"
+        android:maxLines="1"
+        />
+
+    <EditText
+        android:id="@+id/etExample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/basic_back"
+        android:gravity="start"
+        android:hint="Example"
+        android:lines="5"
+        android:scrollbars="horizontal|vertical"
+
+
+        />
+
+
+    <android.widget.Button
+        android:id="@+id/btnInsert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_back"
+        android:text="Insert"
+        android:textColor="@color/white"
+
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/basic_back"
+            android:hint="Search..."
+            android:inputType="text"
+            android:maxLines="1"
+
+            />
+
+        <android.widget.Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_back"
+            android:text="search"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewRes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/basic_back"
+        android:layout_marginBottom="40dp"
+        />
+
+
+</LinearLayout>
+
+
+

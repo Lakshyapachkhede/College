@@ -17,13 +17,13 @@ int main()
 
     int attendence[6][5] = {
         {1, 0, 1, 0, 1},
-        {0, 0, 1, 1, 1},
+        {1, 1, 1, 1, 1},
         {1, 0, 0, 1, 0},
         {0, 1, 0, 1, 0},
         {1, 1, 1, 1, 1},
         {1, 0, 0, 1, 0}};
 
-    printf("|%-10s |%-15s|\n", "Student" ,"Attendence");
+    printf("|%-10s |%-15s|\n", "Student" ,"Attendence(%)");
 
     for (int i = 0; i < N; i++)
     {

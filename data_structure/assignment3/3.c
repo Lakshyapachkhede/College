@@ -72,11 +72,11 @@ void display()
         return;
     }
 
-    printf("Data\tPriority");
+    printf("Data\tPriority\n");
 
     for (int i = 0; i < n; i++)
     {
-        printf("%d\t%d",pq[i].data, pq[i].priority);
+        printf("%d\t%d\n",pq[i].data, pq[i].priority);
     }
 
 

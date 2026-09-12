@@ -1,0 +1,432 @@
+[
+    {
+      "method_name": "length()",
+      "description_use": "Returns the number of characters in the string.",
+      "example": "\"Hello\".length() // 5"
+    },
+    {
+      "method_name": "isEmpty()",
+      "description_use": "Checks whether the string has zero characters.",
+      "example": "\"\".isEmpty() // true"
+    },
+    {
+      "method_name": "isBlank()",
+      "description_use": "Checks whether the string is empty or contains only whitespace.",
+      "example": "\"   \".isBlank() // true"
+    },
+    {
+      "method_name": "charAt(int index)",
+      "description_use": "Returns the character at the specified index.",
+      "example": "\"Java\".charAt(1) // a"
+    },
+    {
+      "method_name": "codePointAt(int index)",
+      "description_use": "Returns the Unicode code point at the specified index.",
+      "example": "\"A\".codePointAt(0) // 65"
+    },
+    {
+      "method_name": "codePointBefore(int index)",
+      "description_use": "Returns the Unicode code point before the specified index.",
+      "example": "\"ABC\".codePointBefore(2) // 66"
+    },
+    {
+      "method_name": "codePointCount(int beginIndex, int endIndex)",
+      "description_use": "Counts Unicode code points in the specified range.",
+      "example": "\"ABC\".codePointCount(0, 3) // 3"
+    },
+    {
+      "method_name": "offsetByCodePoints(int index, int codePointOffset)",
+      "description_use": "Returns an index offset by the specified number of Unicode code points.",
+      "example": "\"ABC\".offsetByCodePoints(0, 2) // 2"
+    },
+    {
+      "method_name": "getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)",
+      "description_use": "Copies characters from this string into a character array.",
+      "example": "char[] a = new char[3]; \"Java\".getChars(0, 3, a, 0); // [J, a, v]"
+    },
+    {
+      "method_name": "getBytes()",
+      "description_use": "Converts the string to a byte array using the default charset.",
+      "example": "\"ABC\".getBytes() // [65, 66, 67]"
+    },
+    {
+      "method_name": "toCharArray()",
+      "description_use": "Converts the string into a character array.",
+      "example": "\"Java\".toCharArray() // [J, a, v, a]"
+    },
+    {
+      "method_name": "equals(Object obj)",
+      "description_use": "Compares the string with another object for exact content equality.",
+      "example": "\"Java\".equals(\"Java\") // true"
+    },
+    {
+      "method_name": "equalsIgnoreCase(String anotherString)",
+      "description_use": "Compares two strings ignoring letter case.",
+      "example": "\"Java\".equalsIgnoreCase(\"JAVA\") // true"
+    },
+    {
+      "method_name": "contentEquals(CharSequence cs)",
+      "description_use": "Checks whether this string has the same content as a CharSequence.",
+      "example": "\"Java\".contentEquals(new StringBuilder(\"Java\")) // true"
+    },
+    {
+      "method_name": "compareTo(String anotherString)",
+      "description_use": "Lexicographically compares this string with another string.",
+      "example": "\"apple\".compareTo(\"banana\") // negative value"
+    },
+    {
+      "method_name": "compareToIgnoreCase(String str)",
+      "description_use": "Lexicographically compares strings while ignoring case.",
+      "example": "\"apple\".compareToIgnoreCase(\"APPLE\") // 0"
+    },
+    {
+      "method_name": "startsWith(String prefix)",
+      "description_use": "Checks whether the string starts with the specified prefix.",
+      "example": "\"Java Programming\".startsWith(\"Java\") // true"
+    },
+    {
+      "method_name": "startsWith(String prefix, int offset)",
+      "description_use": "Checks whether a substring starting at the offset begins with the prefix.",
+      "example": "\"Java Programming\".startsWith(\"Pro\", 5) // true"
+    },
+    {
+      "method_name": "endsWith(String suffix)",
+      "description_use": "Checks whether the string ends with the specified suffix.",
+      "example": "\"Java.java\".endsWith(\".java\") // true"
+    },
+    {
+      "method_name": "hashCode()",
+      "description_use": "Returns the hash code of the string.",
+      "example": "\"Java\".hashCode() // 2301506"
+    },
+    {
+      "method_name": "indexOf(int ch)",
+      "description_use": "Returns the index of the first occurrence of a character.",
+      "example": "\"banana\".indexOf('a') // 1"
+    },
+    {
+      "method_name": "indexOf(int ch, int fromIndex)",
+      "description_use": "Finds the first occurrence of a character from the specified index.",
+      "example": "\"banana\".indexOf('a', 2) // 3"
+    },
+    {
+      "method_name": "indexOf(String str)",
+      "description_use": "Returns the index of the first occurrence of a substring.",
+      "example": "\"banana\".indexOf(\"na\") // 2"
+    },
+    {
+      "method_name": "indexOf(String str, int fromIndex)",
+      "description_use": "Finds the first occurrence of a substring from the specified index.",
+      "example": "\"banana\".indexOf(\"na\", 3) // 4"
+    },
+    {
+      "method_name": "lastIndexOf(int ch)",
+      "description_use": "Returns the index of the last occurrence of a character.",
+      "example": "\"banana\".lastIndexOf('a') // 5"
+    },
+    {
+      "method_name": "lastIndexOf(int ch, int fromIndex)",
+      "description_use": "Finds the last occurrence of a character at or before the specified index.",
+      "example": "\"banana\".lastIndexOf('a', 4) // 3"
+    },
+    {
+      "method_name": "lastIndexOf(String str)",
+      "description_use": "Returns the index of the last occurrence of a substring.",
+      "example": "\"banana\".lastIndexOf(\"na\") // 4"
+    },
+    {
+      "method_name": "lastIndexOf(String str, int fromIndex)",
+      "description_use": "Finds the last occurrence of a substring at or before the specified index.",
+      "example": "\"banana\".lastIndexOf(\"na\", 3) // 2"
+    },
+    {
+      "method_name": "substring(int beginIndex)",
+      "description_use": "Returns a substring from the given index to the end.",
+      "example": "\"HelloWorld\".substring(5) // \"World\""
+    },
+    {
+      "method_name": "substring(int beginIndex, int endIndex)",
+      "description_use": "Returns a substring from beginIndex inclusive to endIndex exclusive.",
+      "example": "\"HelloWorld\".substring(0, 5) // \"Hello\""
+    },
+    {
+      "method_name": "subSequence(int beginIndex, int endIndex)",
+      "description_use": "Returns a CharSequence representing the specified range.",
+      "example": "\"Hello\".subSequence(1, 4) // \"ell\""
+    },
+    {
+      "method_name": "concat(String str)",
+      "description_use": "Concatenates the specified string to the end.",
+      "example": "\"Hello\".concat(\" Java\") // \"Hello Java\""
+    },
+    {
+      "method_name": "replace(char oldChar, char newChar)",
+      "description_use": "Replaces every occurrence of one character with another.",
+      "example": "\"banana\".replace('a', 'o') // \"bonono\""
+    },
+    {
+      "method_name": "replace(CharSequence target, CharSequence replacement)",
+      "description_use": "Replaces every occurrence of a target sequence.",
+      "example": "\"one two one\".replace(\"one\", \"1\") // \"1 two 1\""
+    },
+    {
+      "method_name": "replaceFirst(String regex, String replacement)",
+      "description_use": "Replaces the first substring matching a regular expression.",
+      "example": "\"cat cat\".replaceFirst(\"cat\", \"dog\") // \"dog cat\""
+    },
+    {
+      "method_name": "replaceAll(String regex, String replacement)",
+      "description_use": "Replaces every substring matching a regular expression.",
+      "example": "\"a1b2\".replaceAll(\"\\\\d\", \"X\") // \"aXbX\""
+    },
+    {
+      "method_name": "matches(String regex)",
+      "description_use": "Checks whether the entire string matches a regular expression.",
+      "example": "\"12345\".matches(\"\\\\d+\") // true"
+    },
+    {
+      "method_name": "contains(CharSequence s)",
+      "description_use": "Checks whether the string contains the specified sequence.",
+      "example": "\"Hello Java\".contains(\"Java\") // true"
+    },
+    {
+      "method_name": "regionMatches(int toffset, String other, int ooffset, int len)",
+      "description_use": "Compares a region of this string with a region of another string.",
+      "example": "\"HelloJava\".regionMatches(5, \"Java\", 0, 4) // true"
+    },
+    {
+      "method_name": "regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)",
+      "description_use": "Compares string regions with optional case-insensitivity.",
+      "example": "\"HelloJava\".regionMatches(true, 5, \"java\", 0, 4) // true"
+    },
+    {
+      "method_name": "toLowerCase()",
+      "description_use": "Converts the string to lowercase using the default locale.",
+      "example": "\"JAVA\".toLowerCase() // \"java\""
+    },
+    {
+      "method_name": "toLowerCase(Locale locale)",
+      "description_use": "Converts the string to lowercase using the specified locale.",
+      "example": "\"JAVA\".toLowerCase(Locale.ROOT) // \"java\""
+    },
+    {
+      "method_name": "toUpperCase()",
+      "description_use": "Converts the string to uppercase using the default locale.",
+      "example": "\"java\".toUpperCase() // \"JAVA\""
+    },
+    {
+      "method_name": "toUpperCase(Locale locale)",
+      "description_use": "Converts the string to uppercase using the specified locale.",
+      "example": "\"java\".toUpperCase(Locale.ROOT) // \"JAVA\""
+    },
+    {
+      "method_name": "trim()",
+      "description_use": "Removes leading and trailing characters with code points <= U+0020.",
+      "example": "\"  Java  \".trim() // \"Java\""
+    },
+    {
+      "method_name": "strip()",
+      "description_use": "Removes leading and trailing Unicode whitespace.",
+      "example": "\"  Java  \".strip() // \"Java\""
+    },
+    {
+      "method_name": "stripLeading()",
+      "description_use": "Removes leading Unicode whitespace.",
+      "example": "\"  Java\".stripLeading() // \"Java\""
+    },
+    {
+      "method_name": "stripTrailing()",
+      "description_use": "Removes trailing Unicode whitespace.",
+      "example": "\"Java  \".stripTrailing() // \"Java\""
+    },
+    {
+      "method_name": "lines()",
+      "description_use": "Returns a stream of lines separated by recognized line terminators.",
+      "example": "\"A\\nB\".lines() // stream containing A and B"
+    },
+    {
+      "method_name": "indent(int n)",
+      "description_use": "Adjusts indentation of each line by adding or removing spaces.",
+      "example": "\"A\\nB\".indent(2) // \"  A\\n  B\\n\""
+    },
+    {
+      "method_name": "stripIndent()",
+      "description_use": "Removes incidental indentation from each line.",
+      "example": "\"  A\\n  B\\n\".stripIndent() // \"A\\nB\\n\""
+    },
+    {
+      "method_name": "translateEscapes()",
+      "description_use": "Replaces Java escape sequences such as \\\\n and \\\\t with their corresponding characters.",
+      "example": "\"A\\\\nB\".translateEscapes() // \"A\\nB\""
+    },
+    {
+      "method_name": "transform(Function<? super String, ? extends R> f)",
+      "description_use": "Passes the string to a function and returns the function's result.",
+      "example": "\"java\".transform(String::toUpperCase) // \"JAVA\""
+    },
+    {
+      "method_name": "toString()",
+      "description_use": "Returns the string itself.",
+      "example": "\"Java\".toString() // \"Java\""
+    },
+    {
+      "method_name": "formatted(Object... args)",
+      "description_use": "Formats the string using this string as the format string.",
+      "example": "\"Name: %s\".formatted(\"Java\") // \"Name: Java\""
+    },
+    {
+      "method_name": "format(String format, Object... args)",
+      "description_use": "Returns a formatted string using the specified format and arguments.",
+      "example": "String.format(\"Age: %d\", 20) // \"Age: 20\""
+    },
+    {
+      "method_name": "format(Locale l, String format, Object... args)",
+      "description_use": "Returns a formatted string using the specified locale.",
+      "example": "String.format(Locale.US, \"%.2f\", 3.14) // \"3.14\""
+    },
+    {
+      "method_name": "join(CharSequence delimiter, CharSequence... elements)",
+      "description_use": "Joins multiple character sequences using a delimiter.",
+      "example": "String.join(\", \", \"A\", \"B\", \"C\") // \"A, B, C\""
+    },
+    {
+      "method_name": "join(CharSequence delimiter, Iterable<? extends CharSequence> elements)",
+      "description_use": "Joins elements from an Iterable using a delimiter.",
+      "example": "String.join(\"-\", List.of(\"2026\", \"09\", \"12\")) // \"2026-09-12\""
+    },
+    {
+      "method_name": "repeat(int count)",
+      "description_use": "Repeats the string the specified number of times.",
+      "example": "\"ha\".repeat(3) // \"hahaha\""
+    },
+    {
+      "method_name": "split(String regex)",
+      "description_use": "Splits the string around matches of a regular expression.",
+      "example": "\"a,b,c\".split(\",\") // [\"a\", \"b\", \"c\"]"
+    },
+    {
+      "method_name": "split(String regex, int limit)",
+      "description_use": "Splits the string using a regex with control over the number of resulting parts.",
+      "example": "\"a,b,c\".split(\",\", 2) // [\"a\", \"b,c\"]"
+    },
+    {
+      "method_name": "splitWithDelimiters(String regex, int limit)",
+      "description_use": "Splits around regex matches while retaining delimiters in the result (Java 21+).",
+      "example": "\"a,b,c\".splitWithDelimiters(\",\", 0) // [\"a\", \",\", \"b\", \",\", \"c\"]"
+    },
+    {
+      "method_name": "intern()",
+      "description_use": "Returns the canonical representation of the string from the string pool.",
+      "example": "new String(\"Java\").intern() == \"Java\" // true"
+    },
+    {
+      "method_name": "getBytes(Charset charset)",
+      "description_use": "Converts the string to bytes using the specified charset.",
+      "example": "\"ABC\".getBytes(StandardCharsets.UTF_8) // UTF-8 bytes"
+    },
+    {
+      "method_name": "getBytes(String charsetName)",
+      "description_use": "Converts the string to bytes using a named charset.",
+      "example": "\"ABC\".getBytes(\"UTF-8\") // UTF-8 bytes"
+    },
+    {
+      "method_name": "getBytes(int srcBegin, int srcEnd, byte[] dst, int dstBegin)",
+      "description_use": "Copies characters into a byte array using the platform default encoding; legacy/deprecated.",
+      "example": "byte[] b = new byte[3]; \"ABC\".getBytes(0, 3, b, 0);"
+    },
+    {
+      "method_name": "codePoints()",
+      "description_use": "Returns an IntStream of Unicode code points in the string.",
+      "example": "\"ABC\".codePoints() // stream of 65, 66, 67"
+    },
+    {
+      "method_name": "chars()",
+      "description_use": "Returns an IntStream of UTF-16 code units.",
+      "example": "\"ABC\".chars() // stream of 65, 66, 67"
+    },
+    {
+      "method_name": "String(byte[] bytes)",
+      "description_use": "Creates a string by decoding bytes using the default charset.",
+      "example": "new String(new byte[]{65, 66, 67}) // \"ABC\""
+    },
+    {
+      "method_name": "String(byte[] bytes, Charset charset)",
+      "description_use": "Creates a string by decoding bytes with the specified charset.",
+      "example": "new String(bytes, StandardCharsets.UTF_8) // \"ABC\""
+    },
+    {
+      "method_name": "String(byte[] bytes, int offset, int length)",
+      "description_use": "Creates a string from part of a byte array using the default charset.",
+      "example": "new String(bytes, 0, 3) // \"ABC\""
+    },
+    {
+      "method_name": "String(char[] value)",
+      "description_use": "Creates a string from a character array.",
+      "example": "new String(new char[]{'J', 'a', 'v', 'a'}) // \"Java\""
+    },
+    {
+      "method_name": "String(char[] value, int offset, int count)",
+      "description_use": "Creates a string from part of a character array.",
+      "example": "new String(new char[]{'J', 'a', 'v', 'a'}, 0, 3) // \"Jav\""
+    },
+    {
+      "method_name": "String(int[] codePoints, int offset, int count)",
+      "description_use": "Creates a string from Unicode code points.",
+      "example": "new String(new int[]{65, 66, 67}, 0, 3) // \"ABC\""
+    },
+    {
+      "method_name": "valueOf(Object obj)",
+      "description_use": "Returns the string representation of an object.",
+      "example": "String.valueOf(123) // \"123\""
+    },
+    {
+      "method_name": "valueOf(char[] data)",
+      "description_use": "Returns a string representing a character array.",
+      "example": "String.valueOf(new char[]{'J', 'a', 'v', 'a'}) // \"Java\""
+    },
+    {
+      "method_name": "valueOf(char[] data, int offset, int count)",
+      "description_use": "Returns a string from part of a character array.",
+      "example": "String.valueOf(new char[]{'J', 'a', 'v', 'a'}, 0, 3) // \"Jav\""
+    },
+    {
+      "method_name": "valueOf(boolean b)",
+      "description_use": "Returns the string representation of a boolean.",
+      "example": "String.valueOf(true) // \"true\""
+    },
+    {
+      "method_name": "valueOf(char c)",
+      "description_use": "Returns the string representation of a character.",
+      "example": "String.valueOf('A') // \"A\""
+    },
+    {
+      "method_name": "valueOf(int i)",
+      "description_use": "Returns the string representation of an integer.",
+      "example": "String.valueOf(123) // \"123\""
+    },
+    {
+      "method_name": "valueOf(long l)",
+      "description_use": "Returns the string representation of a long.",
+      "example": "String.valueOf(123L) // \"123\""
+    },
+    {
+      "method_name": "valueOf(float f)",
+      "description_use": "Returns the string representation of a float.",
+      "example": "String.valueOf(3.14f) // \"3.14\""
+    },
+    {
+      "method_name": "valueOf(double d)",
+      "description_use": "Returns the string representation of a double.",
+      "example": "String.valueOf(3.14) // \"3.14\""
+    },
+    {
+      "method_name": "copyValueOf(char[] data)",
+      "description_use": "Equivalent to valueOf(char[]) and creates a string from a character array.",
+      "example": "String.copyValueOf(new char[]{'J', 'a', 'v', 'a'}) // \"Java\""
+    },
+    {
+      "method_name": "copyValueOf(char[] data, int offset, int count)",
+      "description_use": "Creates a string from part of a character array.",
+      "example": "String.copyValueOf(new char[]{'J', 'a', 'v', 'a'}, 0, 3) // \"Jav\""
+    }
+  ]

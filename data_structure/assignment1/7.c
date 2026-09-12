@@ -40,7 +40,7 @@ int main()
     printf("Name: %s\n", emp->name);
     printf("Salary: %.2f\n", emp->salary);
 
-    printf("\n\nAnnual Salary: %d", emp->salary * 12);
+    printf("\n\nAnnual Salary: %0.2f", emp->salary * 12);
 
 
     free(emp);
