@@ -2,42 +2,61 @@ package com.pachkhede.wallpaperapp;
 
 public class Wallpaper {
 
-    private String id;
-    private String url;
-    private String path;
-    private Thumbs thumbs;
+    private int id;
+    private String image_url;
+    private String thumbnail_url;
 
-    public String getId() {
+
+    private int width;
+    private int height;
+    private int file_size;
+
+
+    public int getId() {
         return id;
     }
 
-    public String getUrl() {
-        return url;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getPath() {
-        return path;
+    public int getFile_size() {
+        return file_size;
     }
 
-    public Thumbs getThumbs() {
-        return thumbs;
+    public void setFile_size(int file_size) {
+        this.file_size = file_size;
     }
 
-    public static class Thumbs {
+    public int getHeight() {
+        return height;
+    }
 
-        private String large;
-        private String original;
-        private String small;
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
-        public String getLarge() {
-            return large;
-        }
+    public int getWidth() {
+        return width;
+    }
 
-        public String getOriginal() {
-            return original;
-        }
-        public String getSmall() {
-            return small;
-        }
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public String getThumbnail_url() {
+        return thumbnail_url;
+    }
+
+    public void setThumbnail_url(String thumbnail_url) {
+        this.thumbnail_url = thumbnail_url;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

@@ -18,11 +18,12 @@
         android:textStyle="bold"
         android:textSize="36sp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
 
       />
 
-    <FrameLayout
-        android:id="@+id/main_frag_con"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/main_view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -30,7 +31,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="@android:color/white"
         app:itemTextColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
