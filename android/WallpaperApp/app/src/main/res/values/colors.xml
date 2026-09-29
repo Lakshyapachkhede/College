@@ -8,4 +8,6 @@
     <color name="text_primary">#000000</color>
     <color name="text_accent">#F62F4C</color>
 
+    <color name="white">#FFF</color>
+
 </resources>

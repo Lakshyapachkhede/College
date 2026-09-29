@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,17 +27,17 @@ import retrofit2.Response;
 public class WallpaperGridFragment extends Fragment {
     private static final String ARG_QUERY = "query";
     private static final String ARG_SORT = "sorting";
+    private static final String ARG_CAT = "category";
     public static final int perPage = 24;
 
-    List<Wallpaper> wallpapers;
     RecyclerView recyclerView;
     private WallpaperAdapter adapter;
+    private WallpaperGridViewModel viewModel;
 
-    private int currentPage = 1;
-    private boolean isLoading = false;
-    private boolean isLastPage = false;
     private String query;
     private String sorting;
+    private Integer category_id;
+
 
 
     public WallpaperGridFragment() {
@@ -44,13 +45,16 @@ public class WallpaperGridFragment extends Fragment {
     }
 
 
-    public static WallpaperGridFragment newInstance(String query, String sorting) {
+    public static WallpaperGridFragment newInstance(String query, String sorting, Integer category) {
 
 
         WallpaperGridFragment fragment = new WallpaperGridFragment();
         Bundle args = new Bundle();
         args.putString(ARG_QUERY, query);
         args.putString(ARG_SORT, sorting);
+        if (category != null) {
+            args.putInt(ARG_CAT, category);
+        }
 
 
         fragment.setArguments(args);
@@ -63,6 +67,14 @@ public class WallpaperGridFragment extends Fragment {
         super.onCreate(savedInstanceState);
         this.query = getArguments().getString(ARG_QUERY);
         this.sorting = getArguments().getString(ARG_SORT);
+        category_id = getArguments().containsKey(ARG_CAT)
+                ? getArguments().getInt(ARG_CAT)
+                : null;
+
+        String key = "grid_" + query + "_" + sorting;
+        viewModel = new ViewModelProvider(requireActivity())
+                .get(key, WallpaperGridViewModel.class);
+        viewModel.init(query, sorting, category_id);
 
     }
 
@@ -83,16 +95,17 @@ public class WallpaperGridFragment extends Fragment {
             @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
 
-        wallpapers = new ArrayList<>();
-        adapter = new WallpaperAdapter(wallpapers, wallpaper-> {
-            Intent i = new Intent(getContext(), WallpaperPreviewActivity.class);
+
+        adapter = new WallpaperAdapter(new ArrayList<>(), wallpaper-> {
+            Intent i = new Intent(requireContext(), WallpaperPreviewActivity.class);
 
             i.putExtra("wallpaper_url", wallpaper.getImage_url());
             i.putExtra("wallpaper_id", wallpaper.getId());
 
             startActivity(i);
+
 
 
         });
@@ -101,7 +114,10 @@ public class WallpaperGridFragment extends Fragment {
 
         setScrollListener();
 
-        loadWallpapers();
+
+        viewModel.getWallpapers().observe(getViewLifecycleOwner(),
+                list -> adapter.addWallpapers(list));
+
 
     }
 
@@ -137,70 +153,11 @@ public class WallpaperGridFragment extends Fragment {
                                 layoutManager.findLastVisibleItemPosition();
 
                         if (lastVisibleItem >= totalItems - 4) {
-
-                            loadWallpapers();
+                            viewModel.loadNextPage();
                         }
                     }
                 }
         );
-    }
-
-    private void loadWallpapers() {
-        if (isLoading || isLastPage) {
-            return;
-        }
-
-        isLoading = true;
-
-        NexWallApi api = RetrofitClient.getApi();
-
-        api.searchWallpaper(
-                this.query,
-                this.currentPage,
-                this.perPage,
-                this.sorting
-        ).enqueue(new Callback<WallpaperResponse>() {
-
-            @Override
-            public void onResponse(
-                    Call<WallpaperResponse> call,
-                    Response<WallpaperResponse> response) {
-                isLoading = false;
-                if (response.isSuccessful() && response.body() != null) {
-                    List<Wallpaper> newWallpapers =
-                            response.body().getData();
-                    if (newWallpapers == null
-                            || newWallpapers.isEmpty()) {
-
-                        isLastPage = true;
-                        return;
-
-                    }
-                    adapter.addWallpapers(newWallpapers);
-
-                    currentPage++;
-
-                    Toast.makeText(getContext(), "Load Complete", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Log.e("WALLHAVEN",
-                            "Response error: " + response.code());
-                    Toast.makeText(getContext(), "Response Error: " + response.code(), Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onFailure(
-                    Call<WallpaperResponse> call,
-                    Throwable t) {
-
-                Log.e("WALLHAVEN",
-                        "Network error", t);
-                Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
 
 }

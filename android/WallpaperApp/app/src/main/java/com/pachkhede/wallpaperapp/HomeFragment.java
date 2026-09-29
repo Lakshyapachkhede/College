@@ -54,13 +54,22 @@ public class HomeFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
+
+        Fragment existingFragment =
+                getChildFragmentManager()
+                        .findFragmentById(R.id.wallpaper_grid_container);
+
+        if (existingFragment == null) {
+
             getChildFragmentManager()
                     .beginTransaction()
                     .replace(
                             R.id.wallpaper_grid_container,
-                            WallpaperGridFragment.newInstance("cars", "random")
+                            WallpaperGridFragment.newInstance(null, "random", null)
                     )
                     .commit();
+        }
+
 
 
 
