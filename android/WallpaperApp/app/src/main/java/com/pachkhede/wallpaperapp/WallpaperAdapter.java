@@ -18,7 +18,7 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.Wall
 
     private OnWallpaperClickListener listener;
 
-    public interface OnWallpaperClickListener {
+    public  interface OnWallpaperClickListener {
         void onWallpaperClick(Wallpaper wallpaper);
     }
 

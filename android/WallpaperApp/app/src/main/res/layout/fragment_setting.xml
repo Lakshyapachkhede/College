@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    tools:context=".SettingFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Settings"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+
+        />
+
+    <Switch
+        android:id="@+id/switchLock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Auto Change Lock Screen Wallpaper"
+        android:textSize="16sp"
+        android:padding="10dp" />
+
+    <Switch
+        android:id="@+id/switchHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Auto Change Home Screen Wallpaper"
+        android:textSize="16sp"
+        android:padding="10dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home Screen Wallpaper Change Interval"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerInterval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:text="
+Developed By:\n
+    Divyansh Dave\n
+    Saransh Jagwani\n
+    Veer Yadav\n
+    Lakshya Pachkhede
+"
+        />
+
+
+</LinearLayout>

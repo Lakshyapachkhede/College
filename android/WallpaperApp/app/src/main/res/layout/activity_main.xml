@@ -33,12 +33,12 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@android:color/white"
-        app:itemTextColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
         app:itemRippleColor="@android:color/transparent"
         app:menu="@menu/bottom_nav_menu"
-
-
+        app:itemIconTint="@color/bottom_nav_icon_colors"
+        app:itemTextColor="@color/bottom_nav_icon_colors"
+        app:itemActiveIndicatorStyle="@android:color/transparent"
         />
 
 </LinearLayout>

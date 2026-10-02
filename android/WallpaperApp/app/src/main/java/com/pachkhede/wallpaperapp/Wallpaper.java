@@ -1,6 +1,11 @@
 package com.pachkhede.wallpaperapp;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+
 public class Wallpaper {
+
 
     private int id;
     private String image_url;

@@ -7,4 +7,9 @@
     </style>
 
     <style name="Theme.WallpaperApp" parent="Base.Theme.WallpaperApp" />
+
+    <style name="CustomBottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary</item>
+    </style>
+
 </resources>

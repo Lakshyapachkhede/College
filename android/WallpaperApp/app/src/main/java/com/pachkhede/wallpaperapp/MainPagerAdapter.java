@@ -15,17 +15,19 @@ public class MainPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         if (position == 0) {
             return new HomeFragment();
-
         } else if (position == 1) {
             return new CategoryFragment();
-
-        } else {
+        } else if (position == 2) {
+            return new SearchFragment();
+        }else if (position == 3) {
             return new LikedFragment();
+        } else{
+            return new SettingFragment();
         }
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 5;
     }
 }

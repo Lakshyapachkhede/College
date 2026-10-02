@@ -25,8 +25,6 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-
-
     public HomeFragment() {
 
     }
