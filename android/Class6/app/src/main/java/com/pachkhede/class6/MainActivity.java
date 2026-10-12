@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     TextView tv2;
     int PICK_IMAGE = 100;
+    int CAMERA_REQUEST = 101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void generateAIImage(String prompt) {
+
         tv2.setText("Generating Image");
 
         OkHttpClient client = new OkHttpClient.Builder()
@@ -104,11 +107,25 @@ public class MainActivity extends AppCompatActivity {
                         null,
                         formatBody
                 );
+
+
+        RequestBody modelBody = RequestBody.create(
+                MediaType.parse("text/plain"),
+                "sd3.5-flash"
+        );
+
+        MultipartBody.Part modelPart =
+                MultipartBody.Part.createFormData(
+                        "model",
+                        null,
+                        modelBody
+                );
         Call<ResponseBody> call = api.generateImage(
-                "Bearer sk-D2f0GedDN68SDk0H1v3E88jfkiPU6QX8MMokgjlW4pMGCdbz",
+                "Bearer sk-enSG9pKGh1llccKFYGMHW8rhfByflTmIiziHc4FQbXjiX7kO",
                 "image/*",
                 promptPart,
-                formatPart
+                formatPart,
+                modelPart
         );
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -182,6 +199,11 @@ public class MainActivity extends AppCompatActivity {
             if (!prompt.isEmpty()) {
                 generateAIImage(prompt);
             }
+            else
+            {
+                Toast.makeText(this, "Please enter a prompt",
+                        Toast.LENGTH_SHORT).show();
+            }
 
             return true;
         }
@@ -198,6 +220,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.menu_3) {
 
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+            return true;
+        }
+
+        if (item.getItemId() == R.id.menu_4) {
+
             saveImage();
 
             return true;
@@ -209,8 +239,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveImage() {
 
-        image.setDrawingCacheEnabled(true);
-        Bitmap bitmap = image.getDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
 
         if (bitmap == null) {
             Toast.makeText(this, "No image to save", Toast.LENGTH_SHORT).show();
@@ -294,6 +323,14 @@ public class MainActivity extends AppCompatActivity {
             Uri imageUri = data.getData();
 
             image.setImageURI(imageUri);
+        }
+
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+            image.setImageBitmap(imageBitmap);
         }
     }
 

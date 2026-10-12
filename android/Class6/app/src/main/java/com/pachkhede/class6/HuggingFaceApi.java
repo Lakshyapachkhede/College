@@ -17,7 +17,8 @@ public interface HuggingFaceApi {
             @Header("Authorization") String token,
             @Header("Accept") String accept,
             @Part MultipartBody.Part prompt,
-            @Part MultipartBody.Part outputFormat
+            @Part MultipartBody.Part outputFormat,
+            @Part MultipartBody.Part model
 
     );
 }
